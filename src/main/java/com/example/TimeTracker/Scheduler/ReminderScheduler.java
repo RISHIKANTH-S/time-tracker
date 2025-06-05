@@ -26,7 +26,7 @@ public class ReminderScheduler {
         this.notificationService = notificationService;
     }
 
-    @Scheduled(cron = "0 00 20 * * *") // Run at 8 PM every day to check exit punch
+    @Scheduled(cron = "0 50 18 * * *") // Run at 8 PM every day to check exit punch
     public void sendPunchOutReminders() {
         LocalDate today = LocalDate.now();
         List<Employee> employees = employeeRepository.findAll();
