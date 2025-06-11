@@ -10,8 +10,6 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class TimeTrackerApplication {
 	public static void main(String[] args) {
 		Dotenv dotenv = Dotenv.load();
-		System.out.println("DB_USERNAME: " + System.getenv("DB_USERNAME"));
-		System.out.println("DB_PASSWORD: " + System.getenv("DB_PASSWORD"));
 		SpringApplication.run(TimeTrackerApplication.class, args);
 	}
 }
