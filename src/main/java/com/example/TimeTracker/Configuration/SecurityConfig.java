@@ -13,20 +13,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                // Disable CSRF since you're using JWT
+                // Disable CSRF since i am planning to use jwt
                 .csrf(csrf -> csrf.disable())
-
-                // Make session stateless
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
-
-                // Permit unauthenticated endpoints like register/login
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**", "/api/employees/register").permitAll()
                         .anyRequest().authenticated()
                 );
-
         return http.build();
     }
 }
