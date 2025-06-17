@@ -2,6 +2,7 @@ package com.example.TimeTracker.Service.Impl;
 
 import com.example.TimeTracker.DTO.EmployeeDTO;
 import com.example.TimeTracker.Entities.Employee;
+import com.example.TimeTracker.Exceptions.ResourceNotFoundException;
 import com.example.TimeTracker.Repository.EmployeeRepository;
 import com.example.TimeTracker.Service.Interfaces.EmployeeServiceInterface;
 import jakarta.persistence.EntityNotFoundException;
@@ -9,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class EmployeeService implements EmployeeServiceInterface {
@@ -23,9 +25,15 @@ public class EmployeeService implements EmployeeServiceInterface {
 
     public EmployeeDTO registerEmployee(EmployeeDTO employeeDTO) {
         Employee employee = modelMapper.map(employeeDTO, Employee.class);
+        Optional<Employee> existedUser=employeeRepository.findByUsername(employee.getUsername());
+        if(existedUser.isPresent()){
+            throw new ResourceNotFoundException("Username already exists");
+        }
         employee.setCreatedAt(LocalDateTime.now());
-        employee.setName(employeeDTO.getName());
-        employee.setEmail(employee.getEmail());
+        employee.setUsername(employeeDTO.getUsername());
+        employee.setPassword(employeeDTO.getPassword());
+        employee.setDepartment(employeeDTO.getDepartment());
+        employee.setEmail(employeeDTO.getEmail());
         Employee saved = employeeRepository.save(employee);
         return modelMapper.map(saved, EmployeeDTO.class);
     }

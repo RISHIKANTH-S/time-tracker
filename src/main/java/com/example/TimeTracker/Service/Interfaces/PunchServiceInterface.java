@@ -4,6 +4,7 @@ import com.example.TimeTracker.DTO.PunchDurationResponseDTO;
 import com.example.TimeTracker.DTO.PunchHistoryRequestDTO;
 import com.example.TimeTracker.DTO.PunchHistoryResponseDTO;
 import com.example.TimeTracker.DTO.PunchRequestDTO;
+import com.example.TimeTracker.Entities.PunchEntry;
 
 import java.time.LocalDate;
 
