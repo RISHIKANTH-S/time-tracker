@@ -1,13 +1,19 @@
 package com.example.TimeTracker.DTO;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class EmployeeDTO {
+        @NotBlank(message = "Username must not be empty")
         private String username;
+        @NotBlank(message = "password must not be empty")
         private String password;
+        @NotBlank(message="Email must not be empty")
+        @Email
         private String email;
         private String department;
 

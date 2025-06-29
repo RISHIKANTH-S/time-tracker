@@ -2,6 +2,7 @@ package com.example.TimeTracker.Scheduler;
 
 import com.example.TimeTracker.Entities.Employee;
 import com.example.TimeTracker.Entities.PunchEntry;
+import com.example.TimeTracker.Entities.Users;
 import com.example.TimeTracker.Enums.PunchType;
 import com.example.TimeTracker.Repository.EmployeeRepository;
 import com.example.TimeTracker.Repository.PunchEntryRepository;
@@ -26,12 +27,12 @@ public class ReminderScheduler {
         this.notificationService = notificationService;
     }
 
-    @Scheduled(cron = "0 50 18 * * *") // Run at 8 PM every day to check exit punch
+    /***@Scheduled(cron = "0 50 18 * * *") // Run at 8 PM every day to check exit punch
     public void sendPunchOutReminders() {
         LocalDate today = LocalDate.now();
         List<Employee> employees = employeeRepository.findAll();
 
-        for (Employee employee : employees) {
+        for (Users user : employees) {
             Optional<PunchEntry> lastPunch = punchEntryRepository
                     .findLastPunchOfDay(employee.getOrgNo(), today);
 
@@ -39,5 +40,5 @@ public class ReminderScheduler {
                 notificationService.sendReminder(employee);
             }
         }
-    }
+    }***/
 }

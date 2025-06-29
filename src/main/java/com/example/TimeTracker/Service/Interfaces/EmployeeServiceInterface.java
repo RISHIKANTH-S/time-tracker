@@ -1,10 +1,11 @@
 package com.example.TimeTracker.Service.Interfaces;
 
 import com.example.TimeTracker.DTO.EmployeeDTO;
+import com.example.TimeTracker.DTO.EmployeeResponseDTO;
 
 public interface EmployeeServiceInterface {
 
-    EmployeeDTO registerEmployee(EmployeeDTO employeeDTO);
+    //EmployeeResponseDTO registerEmployee(EmployeeDTO employeeDTO);
 
     void deleteEmployeeById(Long id);
 }

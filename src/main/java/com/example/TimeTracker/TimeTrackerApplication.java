@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import io.github.cdimascio.dotenv.Dotenv;
 
 @SpringBootApplication
-@EnableScheduling
+//@EnableScheduling
 public class TimeTrackerApplication {
 	public static void main(String[] args) {
 		Dotenv dotenv = Dotenv.load();
