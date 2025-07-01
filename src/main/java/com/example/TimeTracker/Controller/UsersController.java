@@ -1,10 +1,7 @@
 package com.example.TimeTracker.Controller;
 
-import com.example.TimeTracker.DTO.EmployeeDTO;
-import com.example.TimeTracker.DTO.EmployeeResponseDTO;
 import com.example.TimeTracker.DTO.UserRegistrationRequestDTO;
 import com.example.TimeTracker.Service.Interfaces.UsersServiceInterface;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,18 +1,11 @@
 package com.example.TimeTracker.Service.Impl;
 
-import com.example.TimeTracker.DTO.EmployeeDTO;
-import com.example.TimeTracker.DTO.EmployeeResponseDTO;
-import com.example.TimeTracker.Entities.Employee;
-import com.example.TimeTracker.Exceptions.ResourceNotFoundException;
 import com.example.TimeTracker.Repository.EmployeeRepository;
 import com.example.TimeTracker.Service.Interfaces.EmployeeServiceInterface;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 public class EmployeeService implements EmployeeServiceInterface {

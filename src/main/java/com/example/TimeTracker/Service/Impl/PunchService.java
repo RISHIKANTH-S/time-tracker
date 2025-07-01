@@ -3,10 +3,12 @@ package com.example.TimeTracker.Service.Impl;
 import com.example.TimeTracker.DTO.*;
 import com.example.TimeTracker.Entities.Employee;
 import com.example.TimeTracker.Entities.PunchEntry;
+import com.example.TimeTracker.Entities.Users;
 import com.example.TimeTracker.Enums.PunchType;
 import com.example.TimeTracker.Exceptions.ResourceNotFoundException;
 import com.example.TimeTracker.Repository.EmployeeRepository;
 import com.example.TimeTracker.Repository.PunchEntryRepository;
+import com.example.TimeTracker.Repository.UsersRepository;
 import com.example.TimeTracker.Service.Interfaces.PunchServiceInterface;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,16 +24,18 @@ import java.util.stream.Collectors;
 
 @Service
 public class PunchService implements PunchServiceInterface {
+    private final UsersRepository usersRepository;
     private final EmployeeRepository employeeRepository;
     private final PunchEntryRepository punchEntryRepository;
-    public PunchService(PunchEntryRepository punchEntryRepository, EmployeeRepository employeeRepository) {
+    public PunchService(UsersRepository usersRepository,PunchEntryRepository punchEntryRepository, EmployeeRepository employeeRepository) {
         this.punchEntryRepository = punchEntryRepository;
         this.employeeRepository = employeeRepository;
+        this.usersRepository=usersRepository;
     }
     public void recordPunch(PunchRequestDTO punchRequestDTO) {
         Long ssid = punchRequestDTO.getSsid();
         PunchType currentPunch = punchRequestDTO.getPunchType();
-        Employee employee = employeeRepository.findById(ssid)
+        Employee employee = employeeRepository.findByUserId(ssid)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found with SSID: " + ssid));
         // Fetch the last punch (by date and time)
         Optional<PunchEntry> lastPunchOpt = punchEntryRepository.findLatestPunchByEmployee(ssid);
