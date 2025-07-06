@@ -6,17 +6,14 @@ public class PunchDurationResponseDTO {
         private String date;
         private Long ssid;
         private String duration; // e.g., "2 hours and 30 minutes"
-
         public String getDate() {
             return date;
         }
-
     public PunchDurationResponseDTO(String date, Long ssid, String duration) {
         this.date = date;
         this.ssid = ssid;
         this.duration = duration;
     }
-
     public void setDate(String date) {
             this.date = date;
         }

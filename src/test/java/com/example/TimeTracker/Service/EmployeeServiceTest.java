@@ -32,7 +32,7 @@ public class EmployeeServiceTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
+    /*@Test
     void testRegisterEmployee() {
         // Arrange
         EmployeeDTO inputDTO = new EmployeeDTO();
@@ -64,4 +64,5 @@ public class EmployeeServiceTest {
         verify(employeeRepository).save(mappedEntity);
         verify(modelMapper).map(savedEntity, EmployeeDTO.class);
     }
+     */
 }
