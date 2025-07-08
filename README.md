@@ -27,7 +27,7 @@
 FYI: This Project is Abstract level Design Of what i worked as a Project Associate
 - Uses Spring Scheduler + Gmail SMTP.
   
-### 🔐 Role-Based Access Control (RBAC)
+### 🔐 Role-Based Access Control (RBAC) and JWT Authentication
 - Routes and operations are restricted based on role (`EMPLOYEE`, `ADMIN`).
 - Prevents unauthorized access to sensitive records.
 
