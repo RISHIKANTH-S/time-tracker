@@ -23,6 +23,8 @@
 
 ### 📧 Email Reminder System
 - Sends daily reminders (e.g., 10:15 PM) to employees who forgot to punch out.
+
+FYI: This Project is Abstract level Design Of what i worked as a Project Associate
 - Uses Spring Scheduler + Gmail SMTP.
   
 ### 🔐 Role-Based Access Control (RBAC)
