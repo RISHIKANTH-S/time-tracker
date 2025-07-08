@@ -24,8 +24,7 @@
 ### 📧 Email Reminder System
 - Sends daily reminders (e.g., 10:15 PM) to employees who forgot to punch out.
 - Uses Spring Scheduler + Gmail SMTP.
-- 
-Future Enhancements:
+  
 ### 🔐 Role-Based Access Control (RBAC)
 - Routes and operations are restricted based on role (`EMPLOYEE`, `ADMIN`).
 - Prevents unauthorized access to sensitive records.
