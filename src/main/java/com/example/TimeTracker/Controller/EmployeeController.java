@@ -12,6 +12,7 @@ public class EmployeeController {
     public EmployeeController(EmployeeServiceInterface employeeServiceInterface) {
         this.employeeServiceInterface = employeeServiceInterface;
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
             employeeServiceInterface.deleteEmployeeById(id);

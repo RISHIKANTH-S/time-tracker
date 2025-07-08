@@ -5,6 +5,7 @@ import com.example.TimeTracker.DTO.EditPunchResponseDTO;
 import com.example.TimeTracker.Service.Impl.AdminService;
 import com.example.TimeTracker.Service.Interfaces.AdminServiceInterface;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +16,7 @@ public class AdminController {
     public AdminController(AdminServiceInterface adminServiceInterface) {
         this.adminServiceInterface = adminServiceInterface;
     }
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/edit-punch")
     public ResponseEntity<EditPunchResponseDTO> editEmployeePunch(@RequestBody EditPunchFieldRequestDTO requestDTO) {
         EditPunchResponseDTO response=adminServiceInterface.editPunch(requestDTO);

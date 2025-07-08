@@ -17,7 +17,6 @@ public class UsersController {
     public UsersController(UsersServiceInterface usersServiceInterface){
         this.usersServiceInterface=usersServiceInterface;
     }
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody UserRegistrationRequestDTO userRegistrationRequestDTO) {
         String savedEmployee = usersServiceInterface.registerUser(userRegistrationRequestDTO);

@@ -50,7 +50,7 @@ public class UsersService implements UsersServiceInterface {
             employee.setDepartment(dto.getDepartment());
             employee.setDesignation(dto.getDesignation());
             employeeRepository.save(employee);
-        } else if (dto.getRole().equalsIgnoreCase("ADMIN")) {
+        } else if (dto.getRole().equalsIgnoreCase("ROLE_ADMIN")) {
             Admin admin = new Admin();
             admin.setUser(savedUser);
             admin.setDepartment(dto.getDepartment());

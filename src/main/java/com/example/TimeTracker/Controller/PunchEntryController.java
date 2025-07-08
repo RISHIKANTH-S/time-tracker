@@ -5,6 +5,7 @@ import com.example.TimeTracker.Service.Impl.PunchService;
 import com.example.TimeTracker.Service.Interfaces.PunchServiceInterface;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ public class PunchEntryController {
     public PunchEntryController(PunchServiceInterface punchServiceInterface) {
         this.punchServiceInterface = punchServiceInterface;
     }
+    @PreAuthorize("hasRole('ROLE_EMPLOYEE')")
     @PostMapping("/record")
     public ResponseEntity<String> recordPunch(@RequestBody PunchRequestDTO punchRequestDTO) {
         punchServiceInterface.recordPunch(punchRequestDTO);
